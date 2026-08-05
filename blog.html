@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nguyen An Phuoc's Blog - Insights and technical breakdowns on AI, Competitive Programming, and Software Engineering.">
+    <title>Blog | Nguyen An Phuoc</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">AP</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#profile" class="nav-link">Profile</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#achievements" class="nav-link">Achievements</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Empty Blog Section -->
+    <section class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; padding-top: 120px;">
+        <div class="section-container" style="text-align: center; max-width: 600px;">
+            <div style="font-size: 64px; margin-bottom: 20px;">✍️</div>
+            <h1 style="font-family: var(--font-display); font-size: 40px; font-weight: 700; margin-bottom: 16px;">No Updates Yet</h1>
+            <p style="font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 32px;">
+                Currently, there are no articles published yet. I'm working on technical breakdowns and reflections about Artificial Intelligence, Competitive Programming, and Software Engineering. Stay tuned for future updates!
+            </p>
+            <a href="index.html" class="btn btn-primary">
+                <span>← Back to Portfolio</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Nguyen An Phuoc. Crafted with 🤍</p>
+            <p class="footer-tech">Built with HTML, CSS, JavaScript &amp; Three.js</p>
+        </div>
+    </footer>
+
+    <!-- Three.js Particles Script -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+
+        const canvas = document.getElementById('particles-canvas');
+        if (canvas) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const count = 120;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(count * 3);
+            for (let i = 0; i < count * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 15;
+            }
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            const material = new THREE.PointsMaterial({ size: 0.03, color: 0xffffff, transparent: true, opacity: 0.3 });
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                points.rotation.y += 0.001;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+    </script>
+</body>
+</html>

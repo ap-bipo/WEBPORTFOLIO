@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nguyen An Phuoc – Software Engineer & AI Enthusiast. Co-founder of SOUNDHP & FITBUDDY. Competitive programmer with expertise in Flutter, Python, C++ and web technologies.">
+    <title>Nguyen An Phuoc | Software Engineer & AI Enthusiast</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <span class="loader-text">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">AP</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#profile" class="nav-link" data-section="profile">Profile</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+                <a href="#achievements" class="nav-link" data-section="achievements">Achievements</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===================== HOME ===================== -->
+    <section id="home" class="section hero-section">
+        <!-- 3D Rain Canvas (behind text) -->
+        <canvas id="rain-canvas"></canvas>
+
+        <div class="hero-content">
+            <p class="hero-greeting animate-on-scroll">Hello, I'm</p>
+            <h1 class="hero-name animate-on-scroll">
+                <span class="name-line">Nguyen</span>
+                <span class="name-line accent-text">An Phuoc</span>
+            </h1>
+            <p class="hero-title animate-on-scroll">Software Engineer · AI Enthusiast · Competitive Programmer</p>
+            <p class="hero-description animate-on-scroll">
+                Building innovative applications at the intersection of AI and software engineering.
+                Passionate about competitive programming, open-source, and crafting impactful digital products.
+            </p>
+            <div class="hero-cta animate-on-scroll">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ===================== 01. PROFILE & EDUCATION (CV Sec. I & III) ===================== -->
+    <section id="profile" class="section">
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-number">01.</span> Profile &amp; Education
+            </h2>
+            <div class="profile-content">
+                <!-- Personal Info -->
+                <div class="profile-info animate-on-scroll">
+                    <div class="profile-avatar">
+                        <div class="avatar-frame">
+                            <img src="anphuoc.jpg" alt="Nguyen An Phuoc" class="avatar-img">
+                        </div>
+                    </div>
+                    <div class="profile-bio">
+                        <h3>About Me</h3>
+                        <p>
+                            I'm a software engineer and AI enthusiast based in Da Nang, Vietnam.
+                            Currently a student at Le Quy Don High School for the Gifted (Class of 2025)
+                            with a specialization in English and strong academic interests in
+                            Artificial Intelligence, Software Engineering, and Competitive Programming.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Education (CV Section III) -->
+                <div class="education-section animate-on-scroll">
+                    <h3 class="skills-title">🎓 Education</h3>
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <h4>Le Quy Don High School for the Gifted</h4>
+                            <span class="edu-location">Da Nang City · Class of 2025 · Specialization: English</span>
+                        </div>
+                        <div class="edu-stats">
+                            <div class="edu-stat">
+                                <span class="stat-value">9.5</span>
+                                <span class="stat-label">GPA (Grade 11)</span>
+                            </div>
+                            <div class="edu-stat">
+                                <span class="stat-value">9.4</span>
+                                <span class="stat-label">GPA (Grade 10)</span>
+                            </div>
+                            <div class="edu-stat">
+                                <span class="stat-value">9.0</span>
+                                <span class="stat-label">GPA (Grade 9)</span>
+                            </div>
+                            <div class="edu-stat">
+                                <span class="stat-value">1470</span>
+                                <span class="stat-label">SAT</span>
+                            </div>
+                            <div class="edu-stat">
+                                <span class="stat-value">7.0</span>
+                                <span class="stat-label">IELTS</span>
+                            </div>
+                        </div>
+                        <div class="edu-ap">
+                            <span class="ap-badge">AP CS A: 5</span>
+                            <span class="ap-badge">AP CS Principles: 4</span>
+                            <span class="ap-badge">AP Statistics: 5</span>
+                            <span class="ap-badge">AP Calculus AB: 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 02. WORK EXPERIENCE (CV Sec. IV) ===================== -->
+    <section id="experience" class="section">
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-number">02.</span> Experience
+            </h2>
+            <div class="timeline" id="timeline">
+                <!-- Timeline items are rendered by JS in chronological order -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 03. ACADEMIC ACHIEVEMENTS (CV Sec. V) ===================== -->
+    <section id="achievements" class="section">
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-number">03.</span> Achievements
+            </h2>
+            <div class="achievements-section animate-on-scroll">
+                <div class="achievements-list">
+                    <!-- Top Award: VOAI (Gold Star) -->
+                    <div class="achievement-item">
+                        <span class="achievement-badge star-gold">★</span>
+                        <span>Competed in the National Selection Round (VOAI) for the International Olympiad in Artificial Intelligence.</span>
+                    </div>
+
+                    <!-- 1st Prize Category (Gold) -->
+                    <div class="achievement-item">
+                        <span class="achievement-badge gold">1st</span>
+                        <span>First Prize Winner, DUT Code League - Achieved First Prize in the ICPC-style competitive programming contest hosted by Da Nang University of Technology.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge gold">1st</span>
+                        <span>First Prize in the Central Highlands and SouthCentral Region Olympic for Competitive Programming, 2024.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge gold">1st</span>
+                        <span>First Prize in 2024 Competitive Programming Municipal Academic Competition.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge gold">1st</span>
+                        <span>First Prize (Champion) in 2025 with designing scientific products in the Young Competitive Programming Municipal Academic Competition.</span>
+                    </div>
+
+                    <!-- 2nd Prize & Top Rank Category (Silver) -->
+                    <div class="achievement-item">
+                        <span class="achievement-badge silver">2nd</span>
+                        <span>Second Prize in the Central Highlands and SouthCentral Region Olympic for Competitive Programming, 2025.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge silver">2nd</span>
+                        <span>Second Prize in the 2025 Regional Young Competitive Programming Academic Competition.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge silver">★</span>
+                        <span>Top 30 Projects | SAGE Vietnam National Finals: Recognized among the best entrepreneurial and innovative projects nationwide.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge silver">★</span>
+                        <span>Top 133/490 Teams | ICPC Vietnam National Contest (2025): Competed against university students on collegiate-level problem sets, placing in the top 27% nationally.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge silver">★</span>
+                        <span>Top 165/446 Teams | ICPC Vietnam National Contest (2024): Competed against university students on collegiate-level problem sets, placing in the top 37% nationally.</span>
+                    </div>
+
+                    <!-- 3rd Prize Category (Bronze) -->
+                    <div class="achievement-item">
+                        <span class="achievement-badge bronze">3rd</span>
+                        <span>Third Prize in 2025 and 2026 for designing scientific products in the Young Competitive Programming Central Regional Academic Competition.</span>
+                    </div>
+
+                    <!-- Honour & Promising Idea Awards Category -->
+                    <div class="achievement-item">
+                        <span class="achievement-badge honour">★</span>
+                        <span>Honour Award in the AI Challenge contest in the Central Highlands and South Central Region Olympic, 2025.</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge honour">★</span>
+                        <span>Promising Idea Award in the VNUK Innovation Challenge 2026, acknowledging the creative potential and practical application of the proposed project.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 04. TECHNICAL SKILLS & HOBBIES (CV Sec. VI & VII) ===================== -->
+    <section id="skills" class="section">
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-number">04.</span> Skills &amp; Interests
+            </h2>
+            <div class="profile-content">
+                <!-- Tech Stack (CV Section VI) -->
+                <div class="skills-section animate-on-scroll">
+                    <h3 class="skills-title">⚡ Tech Stack</h3>
+                    <div class="skills-container">
+                        <!-- Programming Languages -->
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.38 10.37h-1.91V8.46h-1.91v1.91h-1.92v1.91h1.92v1.92h1.91v-1.92h1.91v-1.91zm-6.21 0h-1.91V8.46h-1.92v1.91h-1.91v1.91h1.91v1.92h1.92v-1.92h1.91v-1.91zM11.66 4.91C6.91 4.91 3.06 8.76 3.06 13.51S6.91 22.1 11.66 22.1c3.15 0 5.92-1.7 7.39-4.23l-3.21-1.85c-.86 1.48-2.45 2.47-4.18 2.47-2.71 0-4.91-2.2-4.91-4.91s2.2-4.91 4.91-4.91c1.73 0 3.32.99 4.18 2.47l3.21-1.85c-1.47-2.54-4.24-4.23-7.39-4.23z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.926 0C5.558 0 5.973 2.766 5.973 2.766l.01 2.859h5.973v.855H3.834S0 6.002 0 12.381c0 6.378 3.336 6.16 3.336 6.16l1.99-.001v-2.812s-.106-3.335 3.282-3.335h5.656s3.123.053 3.123-3.018V3.123S17.84 0 11.926 0zM8.708 1.834a1.055 1.055 0 110 2.109 1.055 1.055 0 010-2.109zm3.366 22.166c6.368 0 5.953-2.766 5.953-2.766l-.01-2.859h-5.973v-.855h8.122s3.834.478 3.834-5.901c0-6.378-3.336-6.16-3.336-6.16l-1.99.001v2.812s.106 3.335-3.282 3.335h-5.656s-3.123-.053-3.123 3.018v6.331s-.453 3.123 5.458 3.123zm3.218-1.834a1.055 1.055 0 110-2.109 1.055 1.055 0 010 2.109z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.87.187 4.969-.214 0 0 .552.347.962.593-2.484.821-6.108.647-7.797-.105 0 0-.472-.619 1.213-.988zM8.031 20.732s-.758.552.547.72c1.67.217 3.513.255 5.617-.076 0 0 .376.326.711.536-2.909.574-6.331.428-7.904-.202 0 0-.328-.519 1.029-.978zm.725-4.577s-1.228.75.474.928c2.19.23 3.864.18 6.782-.284 0 0 .378.368.653.655-3.667.668-7.904.595-9.455-.176 0 0-.756-.708 1.546-1.123zm8.397-4.103c.531 1.058.077 2.052-.777 2.836-.889.816-2.227 1.442-3.411 2.04-1.25.632-2.316 1.261-2.316 2.015 0 .809 1.023 1.233 2.188 1.233 2.19 0 4.672-.897 4.672-.897s.241.654.341.979c0 0-2.327 1.096-5.467 1.096-2.527 0-4.32-.977-4.32-2.502 0-1.895 1.838-2.825 3.32-3.56 1.481-.734 2.812-1.391 2.812-2.125 0-.671-.62-1.189-1.688-1.189-1.636 0-3.682.721-3.682.721l.307-.905s2.329-.904 4.542-.904c2.091 0 3.011.666 3.472 1.156z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 3h18v18H3V3zm10.72 14.18c.61 0 1.07-.23 1.41-.69.34-.46.51-1.07.51-1.83v-3.7h-1.92v3.7c0 .32-.07.56-.2.72-.13.16-.32.24-.57.24-.26 0-.46-.08-.59-.24-.13-.16-.2-.4-.2-.72v-3.7H9.83v3.7c0 .76.17 1.37.51 1.83.34.46.8.69 1.38.69zm4.28 0c.93 0 1.63-.26 2.1-.78.47-.52.7-1.27.7-2.25v-.36h-1.92v.36c0 .48-.09.84-.28 1.08-.19.24-.48.36-.88.36-.37 0-.66-.11-.86-.33-.2-.22-.3-.55-.3-.98 0-.32.06-.6.18-.84.12-.24.33-.48.63-.72l.98-.78c.55-.44.95-.91 1.2-1.41.25-.5.38-1.07.38-1.71 0-.96-.23-1.7-.7-2.22-.47-.52-1.17-.78-2.1-.78-.91 0-1.6.25-2.07.75-.47.5-.7 1.23-.7 2.19v.33h1.92v-.33c0-.46.09-.81.27-1.05.18-.24.46-.36.84-.36.36 0 .64.1.84.3.2.2.3.49.3.87 0 .28-.05.53-.16.75-.11.22-.31.45-.6.68l-.94.75c-.56.44-.97.91-1.23 1.41-.26.5-.39 1.07-.39 1.71 0 .98.23 1.73.7 2.25.47.52 1.17.78 2.1.78z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <!-- Frameworks & Tools -->
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zM6 15.7L14.314 24h7.37L13.37 15.7 6 15.7z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Flutter</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771-5.923 10.613zm16.485.49L17.71 3.51a.54.54 0 00-.916-.137L3.102 18.736l8.077 4.551a1.63 1.63 0 001.597 0l7.599-7.125zM11.69 8.243l-2.07-3.921-5.06 9.176 7.13-5.255z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Firebase</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M13.359 11.238H21.5a.5.5 0 0 0 .39-.812L12.4.673a.854.854 0 0 0-1.464.634v10.455H2.5a.5.5 0 0 0-.39.812l9.49 10.753a.854.854 0 0 0 1.464-.634V11.238z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Supabase</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 1.834L2.25 7.464v11.26L12 24.354l9.75-5.63V7.464L12 1.834zM12 12.878c-1.127 0-2.04-.913-2.04-2.04 0-1.127.913-2.04 2.04-2.04 1.127 0 2.04.913 2.04 2.04 0 1.127-.913 2.04-2.04 2.04z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.216 1.38-.071 1.892.44.516.516.66 1.259.434 1.907l2.66 2.66c.647-.226 1.39-.08 1.906.436.73.73.73 1.91 0 2.64-.73.73-1.91.73-2.64 0-.543-.544-.683-1.312-.418-1.971L12.72 8.941V16.6c.21.109.4.264.551.415.73.73.73 1.91 0 2.64-.73.73-1.91.73-2.64 0-.73-.73-.73-1.91 0-2.64.18-.18.397-.323.633-.424v-7.85c-.236-.101-.453-.244-.633-.424-.544-.544-.683-1.312-.418-1.971L7.454 4.582.454 11.582c-.604.604-.604 1.582 0 2.188l10.479 10.478c.604.604 1.582.604 2.188 0l10.425-10.425c.604-.604.604-1.582 0-2.188z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Git</span>
+                        </div>
+                        <!-- AI -->
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                                    <path d="M9 9h6v6H9z"></path>
+                                    <path d="M9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2"></path>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Machine Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Computer Vision</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M1.292 5.856L11.54 0v4.864L4.542 8.828v7.054L1.292 14.15V5.856zM22.708 5.856L12.46 0v4.864l6.998 3.964v7.054l3.25-1.732V5.856zM12 7.732l6.998 3.964-3.25 1.732L12 11.464l-3.748 2.132-3.25-1.732L12 7.732zM12 14.268l3.748 2.132-3.748 2.132-3.748-2.132L12 14.268z"/>
+                                </svg>
+                            </span>
+                            <span class="skill-name">TensorFlow</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="7" r="5"></circle>
+                                    <circle cx="7" cy="17" r="5"></circle>
+                                    <circle cx="17" cy="17" r="5"></circle>
+                                </svg>
+                            </span>
+                            <span class="skill-name">OpenCV</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+                                    <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6"></path>
+                                    <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
+                                    <path d="M18 8a2 2 0 0 1 2 2v4a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>
+                                </svg>
+                            </span>
+                            <span class="skill-name">MediaPipe</span>
+                        </div>
+                        <!-- Web -->
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </span>
+                            <span class="skill-name">HTML / CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </span>
+                            <span class="skill-name">Anime.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hobbies and Interests (CV Section VII) -->
+                <div class="hobbies-section animate-on-scroll">
+                    <h3 class="skills-title">🎯 Hobbies and Interests</h3>
+                    <div class="hobbies-grid">
+                        <div class="hobby-card">
+                            <span class="hobby-icon">🎸</span>
+                            <div class="hobby-info">
+                                <h4>Music &amp; Content Creation</h4>
+                                <p>Managing a personal YouTube channel (@apolibee) to share musical content and guitar performances, with a specific interest in covering music videos by guitar.</p>
+                            </div>
+                        </div>
+                        <div class="hobby-card">
+                            <span class="hobby-icon">⚽</span>
+                            <div class="hobby-info">
+                                <h4>Sports &amp; Teamwork</h4>
+                                <p>Playing football regularly and doing Gym to maintain physical fitness, relieve stress, and build strong teamwork skills.</p>
+                            </div>
+                        </div>
+                        <div class="hobby-card">
+                            <span class="hobby-icon">🔬</span>
+                            <div class="hobby-info">
+                                <h4>Technology &amp; Engineering</h4>
+                                <p>Researching Machine Learning concepts, applying Data Science models, and tinkering with DIY hardware projects.</p>
+                            </div>
+                        </div>
+                        <div class="hobby-card">
+                            <span class="hobby-icon">💻</span>
+                            <div class="hobby-info">
+                                <h4>Competitive Programming</h4>
+                                <p>Solving algorithmic challenges and optimizing code using C++.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 05. PROJECTS ===================== -->
+    <section id="projects" class="section">
+        <div class="section-container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-number">05.</span> Projects
+            </h2>
+            <div class="projects-grid" id="projects-grid"></div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Nguyen An Phuoc. Crafted with 🤍</p>
+            <p class="footer-tech">Built with HTML, CSS, JavaScript &amp; Three.js</p>
+        </div>
+    </footer>
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

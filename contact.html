@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Nguyen An Phuoc – Get in touch for software engineering projects, AI collaborations, and creative ideas.">
+    <title>Contact | Nguyen An Phuoc</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">AP</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#profile" class="nav-link">Profile</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#achievements" class="nav-link">Achievements</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="section" style="min-height: 85vh; padding-top: 140px; padding-bottom: 80px;">
+        <div class="section-container">
+            <h1 class="section-title" style="margin-bottom: 40px;">
+                <span class="title-number">📬</span> Contact Me
+            </h1>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>
+                        Have a project in mind, an AI research idea, or just want to say hello?
+                        Feel free to reach out. I'm always open to discussing new projects, technical challenges, and creative collaborations.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:anphuoc.ro2009@gmail.com" class="contact-link">
+                            <span class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <span>anphuoc.ro2009@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/ap-bipo" target="_blank" rel="noopener" class="contact-link">
+                            <span class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                            </span>
+                            <span>github.com/ap-bipo</span>
+                        </a>
+                        <a href="https://anphuoc.io.vn" target="_blank" rel="noopener" class="contact-link">
+                            <span class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                            </span>
+                            <span>anphuoc.io.vn</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="form-name" placeholder=" " required>
+                        <label for="form-name">Your Name</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="form-email" placeholder=" " required>
+                        <label for="form-email">Your Email</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="form-message" rows="5" placeholder=" " required></textarea>
+                        <label for="form-message">Your Message</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>Send Message</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Nguyen An Phuoc. Crafted with 🤍</p>
+            <p class="footer-tech">Built with HTML, CSS, JavaScript &amp; Three.js</p>
+        </div>
+    </footer>
+
+    <!-- Three.js Particles Script & Form Listener -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+
+        // Particles Background
+        const canvas = document.getElementById('particles-canvas');
+        if (canvas) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const count = 120;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(count * 3);
+            for (let i = 0; i < count * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 15;
+            }
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            const material = new THREE.PointsMaterial({ size: 0.03, color: 0xffffff, transparent: true, opacity: 0.3 });
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                points.rotation.y += 0.001;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Contact Form Submission Logic
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('.btn-submit');
+                btn.classList.add('sent');
+                btn.innerHTML = '<span>Message Sent! ✓</span>';
+                setTimeout(() => {
+                    btn.classList.remove('sent');
+                    btn.innerHTML = '<span>Send Message</span><span class="btn-arrow">→</span>';
+                    form.reset();
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
