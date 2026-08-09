@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nguyen An Phuoc – Software Engineer & AI Enthusiast. Co-founder of SOUNDHP & FITBUDDY. Competitive programmer with expertise in Flutter, Python, C++ and web technologies.">
     <title>Nguyen An Phuoc | Software Engineer & AI Enthusiast</title>
+    <link rel="icon" type="image/jpeg" href="anphuoc.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -440,7 +441,44 @@
 
 
 
+    <!-- Experience Images Modal -->
+    <div class="exp-modal-overlay" id="exp-modal-overlay" aria-hidden="true">
+        <div class="exp-modal" id="exp-modal" role="dialog" aria-modal="true">
+            <!-- Top bar: Further Info + Close -->
+            <div class="exp-modal-top-bar">
+                <a href="#" class="exp-modal-further-btn" id="exp-modal-further-btn" target="_blank" rel="noopener">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Further Information
+                </a>
+                <button class="exp-modal-close" id="exp-modal-close" aria-label="Close modal">×</button>
+            </div>
+
+            <!-- Image gallery (slide strip) -->
+            <div class="exp-modal-gallery" id="exp-modal-gallery">
+                <div class="exp-modal-image-wrapper" id="exp-modal-image-wrapper">
+                    <!-- .exp-img-strip is injected by JS -->
+                </div>
+                <div class="exp-gallery-dots" id="exp-gallery-dots"></div>
+            </div>
+
+            <!-- Info below image -->
+            <div class="exp-modal-info">
+                <div class="exp-modal-info-header">
+                    <p class="exp-modal-role" id="exp-modal-role"></p>
+                    <h3 class="exp-modal-org" id="exp-modal-org"></h3>
+                    <span class="exp-modal-date" id="exp-modal-date"></span>
+                </div>
+                <ul class="exp-modal-bullets" id="exp-modal-bullets"></ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
+
     <footer id="footer">
         <div class="footer-content">
             <p>&copy; 2026 Nguyen An Phuoc. Crafted with 🤍</p>

@@ -382,6 +382,11 @@ const EXPERIENCES = [
         location: 'Da Nang, Vietnam',
         dateStart: '09/2024',
         dateEnd: 'Now',
+        furtherLink: '',
+        images: [
+            'IMAGES/BOGAMIS/z7929696596467_7f99f5763f4db846aedb39d9557d096d.jpg',
+            'IMAGES/BOGAMIS/z7929791681929_4f6f63caa765f547e3e55a60364e6ae3.jpg',
+        ],
         bullets: [
             'Led a core team of ~27 members to drive the club\'s strategic direction and promote the board game movement across Da Nang City.',
             'Organised regular club meetings, interactive workshops, and entertainment events engaging 20+ students per session.',
@@ -396,6 +401,8 @@ const EXPERIENCES = [
         location: 'Da Nang, Vietnam',
         dateStart: '12/2024',
         dateEnd: '07/2025',
+        furtherLink: '',
+        images: [],
         bullets: [
             'Co-organised the "TORAI BUNKASAI" cultural festival promoting Japanese heritage, attended by the Japanese Consul General (Aug 2025).',
             'Coordinated environmental awareness campaigns and conservation activities at the Nghia Trung Hoa Vang historical site (Jan 2025).',
@@ -407,6 +414,8 @@ const EXPERIENCES = [
         location: '',
         dateStart: '01/2025',
         dateEnd: 'Now',
+        furtherLink: '',
+        images: [],
         bullets: [
             'Co-founded a social networking platform enhancing human connection through instant audio sharing.',
             'Designed and implemented the comprehensive system architecture — frontend UI and backend server infrastructure.',
@@ -420,6 +429,11 @@ const EXPERIENCES = [
         location: 'Da Nang, Vietnam',
         dateStart: '03/2025',
         dateEnd: '04/2025',
+        furtherLink: '',
+        images: [
+            'IMAGES/LittlePepperFund/494297494_1229046712553772_7327573232339279610_n.jpg',
+            'IMAGES/LittlePepperFund/494751584_1229046652553778_1697386512014432239_n.jpg',
+        ],
         bullets: [
             'Led a team of ~15 members to organise charitable fundraising activities supporting underprivileged children at SOS Children\'s Village.',
             'Initiated eco-friendly upcycling workshops, transforming discarded materials into handmade teddy bears for charitable sales and direct gifts.',
@@ -432,6 +446,11 @@ const EXPERIENCES = [
         location: 'Da Nang, Vietnam',
         dateStart: '09/2025',
         dateEnd: 'Now',
+        furtherLink: '',
+        images: [
+            'IMAGES/BlissKidz/523841450_724187667035997_5373665178026715948_n.jpg',
+            'IMAGES/BlissKidz/558916994_787710727350357_208044673935372664_n (1).jpg',
+        ],
         bullets: [
             'Supporting financial planning, budget tracking, and logistics for community activities and club events.',
             'Participated in a regional volunteer initiative in A Luoi, providing supplies and facilitating community engagement for underprivileged highland children.',
@@ -444,6 +463,11 @@ const EXPERIENCES = [
         location: '',
         dateStart: '10/2025',
         dateEnd: 'Now',
+        furtherLink: '',
+        images: [
+            'IMAGES/FitBuddy/2.jpg',
+            'IMAGES/FitBuddy/3.jpg',
+        ],
         bullets: [
             'Co-founded a community-driven fitness application tailored for gym practitioners.',
             'Designed the comprehensive system architecture — frontend UI and backend server infrastructure.',
@@ -464,9 +488,12 @@ function renderTimeline() {
         const item = document.createElement('div');
         item.className = 'timeline-item animate-on-scroll';
         item.style.transitionDelay = `${i * 0.08}s`;
+
+        const hasImages = exp.images && exp.images.length > 0;
+
         item.innerHTML = `
             <div class="timeline-dot"></div>
-            <div class="timeline-content">
+            <div class="timeline-content${hasImages ? ' has-images' : ''}" ${hasImages ? `data-exp-index="${EXPERIENCES.indexOf(exp)}"` : ''}>
                 <div class="timeline-header">
                     <div>
                         <h3 class="timeline-role">${exp.role}</h3>
@@ -479,6 +506,229 @@ function renderTimeline() {
                 </ul>
             </div>`;
         timeline.appendChild(item);
+    });
+
+    // Tap anywhere on the card to open modal (only for cards with images)
+    document.querySelectorAll('.timeline-content.has-images').forEach(card => {
+        card.addEventListener('click', () => {
+            const idx = parseInt(card.getAttribute('data-exp-index'), 10);
+            openExpModal(EXPERIENCES[idx]);
+        });
+    });
+}
+
+// ==========================================
+// Experience Modal
+// ==========================================
+let _expCurrentImages = [];
+let _expCurrentIdx    = 0;
+
+// ── drag state (module-level so cleanup is always reachable) ──────────────
+let _drag = {
+    active:    false,
+    startX:    0,
+    startBase: 0,    // strip translateX at drag start (px)
+    current:   0,    // live translateX during drag (px)
+    strip:     null,
+    wrapper:   null,
+    count:     0,
+};
+
+function _dragMove(e) {
+    if (!_drag.active) return;
+    const clientX  = e.touches ? e.touches[0].clientX : e.clientX;
+    const offset   = clientX - _drag.startX;
+    const slideW   = _drag.wrapper.clientWidth;
+    const minX     = -((_drag.count - 1) * slideW);
+    let x          = _drag.startBase + offset;
+
+    // rubber-band at edges
+    if (x > 0)    x = offset * 0.2;
+    if (x < minX) x = minX + (x - minX) * 0.2;
+
+    _drag.current = x;
+    _drag.strip.style.transform = `translateX(${x}px)`;
+}
+
+function _dragEnd() {
+    if (!_drag.active) return;
+    _drag.active = false;
+    document.removeEventListener('mousemove',  _dragMove);
+    document.removeEventListener('mouseup',    _dragEnd);
+    document.removeEventListener('touchmove',  _dragMove);
+    document.removeEventListener('touchend',   _dragEnd);
+    if (_drag.wrapper) _drag.wrapper.style.cursor = 'grab';
+
+    const slideW     = _drag.wrapper.clientWidth;
+    const offset     = _drag.current - _drag.startBase;
+    const threshold  = slideW * 0.15;
+
+    if      (offset < -threshold && _expCurrentIdx < _drag.count - 1) _expCurrentIdx++;
+    else if (offset >  threshold && _expCurrentIdx > 0)               _expCurrentIdx--;
+
+    _drag.strip.style.transition = '';
+    _snapStrip(_drag.strip, slideW);
+    _syncDots();
+}
+
+function _snapStrip(strip, slideW) {
+    strip.style.transform = `translateX(${-_expCurrentIdx * slideW}px)`;
+}
+
+function _syncDots() {
+    document.querySelectorAll('.exp-gallery-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === _expCurrentIdx);
+    });
+}
+
+function buildExpStrip(images) {
+    const wrapper = document.getElementById('exp-modal-image-wrapper');
+    const old = wrapper.querySelector('.exp-img-strip');
+    if (old) old.remove();
+
+    const strip = document.createElement('div');
+    strip.className = 'exp-img-strip';
+    strip.id = 'exp-img-strip';
+    strip.style.touchAction = 'none'; // prevent browser scroll hijack
+
+    images.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Photo ${i + 1}`;
+        img.draggable = false;
+        strip.appendChild(img);
+    });
+
+    wrapper.insertBefore(strip, wrapper.firstChild);
+    if (images.length <= 1) return;
+
+    wrapper.style.cursor = 'grab';
+
+    function startDrag(clientX) {
+        // Read actual current pixel offset from computed style
+        const mat   = new DOMMatrix(window.getComputedStyle(strip).transform);
+        const baseX = mat.m41; // translateX in pixels from the matrix
+
+        _drag.active    = true;
+        _drag.startX    = clientX;
+        _drag.startBase = baseX;
+        _drag.current   = baseX;
+        _drag.strip     = strip;
+        _drag.wrapper   = wrapper;
+        _drag.count     = images.length;
+
+        strip.style.transition = 'none';
+        wrapper.style.cursor   = 'grabbing';
+
+        document.addEventListener('mousemove',  _dragMove);
+        document.addEventListener('mouseup',    _dragEnd);
+        document.addEventListener('touchmove',  _dragMove, { passive: false });
+        document.addEventListener('touchend',   _dragEnd);
+    }
+
+    strip.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        startDrag(e.clientX);
+    });
+
+    strip.addEventListener('touchstart', (e) => {
+        startDrag(e.touches[0].clientX);
+    }, { passive: true });
+}
+
+function buildExpDots(count) {
+    const dotsEl = document.getElementById('exp-gallery-dots');
+    dotsEl.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'exp-gallery-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to photo ${i + 1}`);
+        dot.addEventListener('click', () => {
+            _expCurrentIdx = i;
+            const strip  = document.getElementById('exp-img-strip');
+            const slideW = document.getElementById('exp-modal-image-wrapper').clientWidth;
+            if (strip) {
+                strip.style.transition = '';
+                _snapStrip(strip, slideW);
+            }
+            _syncDots();
+        });
+        dotsEl.appendChild(dot);
+    }
+}
+
+function updateExpStrip() {
+    const strip   = document.getElementById('exp-img-strip');
+    const wrapper = document.getElementById('exp-modal-image-wrapper');
+    if (strip && wrapper) _snapStrip(strip, wrapper.clientWidth);
+    _syncDots();
+}
+
+
+function openExpModal(exp) {
+    const overlay   = document.getElementById('exp-modal-overlay');
+    const gallery   = document.getElementById('exp-modal-gallery');
+    const roleEl    = document.getElementById('exp-modal-role');
+    const orgEl     = document.getElementById('exp-modal-org');
+    const dateEl    = document.getElementById('exp-modal-date');
+    const bulletsEl = document.getElementById('exp-modal-bullets');
+    const furtherBtn= document.getElementById('exp-modal-further-btn');
+    const dotsEl    = document.getElementById('exp-gallery-dots');
+
+    // Populate info
+    roleEl.textContent = exp.role;
+    orgEl.textContent  = exp.org + (exp.location ? ' · ' + exp.location : '');
+    dateEl.textContent = `${exp.dateStart} — ${exp.dateEnd}`;
+    bulletsEl.innerHTML = exp.bullets.map(b => `<li>${b}</li>`).join('');
+
+    // Further info link
+    furtherBtn.style.display = exp.furtherLink ? 'inline-flex' : 'none';
+    if (exp.furtherLink) furtherBtn.href = exp.furtherLink;
+
+    // Images
+    _expCurrentImages = exp.images || [];
+    _expCurrentIdx = 0;
+
+    if (_expCurrentImages.length > 0) {
+        gallery.style.display = 'block';
+        buildExpStrip(_expCurrentImages);
+        buildExpDots(_expCurrentImages.length);
+        dotsEl.style.display = _expCurrentImages.length > 1 ? 'flex' : 'none';
+        updateExpStrip();
+    } else {
+        gallery.style.display = 'none';
+    }
+
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function initExpModal() {
+    const overlay  = document.getElementById('exp-modal-overlay');
+    const closeBtn = document.getElementById('exp-modal-close');
+
+    function closeModal() {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft' && _expCurrentImages.length > 1) {
+            _expCurrentIdx = (_expCurrentIdx - 1 + _expCurrentImages.length) % _expCurrentImages.length;
+            updateExpStrip();
+        }
+        if (e.key === 'ArrowRight' && _expCurrentImages.length > 1) {
+            _expCurrentIdx = (_expCurrentIdx + 1) % _expCurrentImages.length;
+            updateExpStrip();
+        }
     });
 }
 
@@ -747,6 +997,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBlog();
     initScrollAnimations();
     initContactForm();
+    initExpModal();
     
     setTimeout(() => {
         const ls = document.getElementById('loading-screen');
